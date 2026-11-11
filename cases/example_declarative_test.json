@@ -1,0 +1,31 @@
+{
+  "name": "Format JSON User Table",
+  "category": "custom",
+  "description": "Tests if model can extract unstructured user details and emit a strictly typed tool call.",
+  "system_prompt": "You are a database intake assistant. Convert unstructured notes into a structured record.",
+  "user_prompt": "Please register user Carlos Vance with email carlos@enterprise.org and department 'Infrastructure'.",
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "register_user",
+        "description": "Registers a new user into the database.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "email": { "type": "string" },
+            "department": { "type": "string" }
+          },
+          "required": ["name", "email", "department"]
+        }
+      }
+    }
+  ],
+  "expected_tool_name": "register_user",
+  "expected_arguments": {
+    "name": "Carlos Vance",
+    "email": "carlos@enterprise.org",
+    "department": "Infrastructure"
+  }
+}
