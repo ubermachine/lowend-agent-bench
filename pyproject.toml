@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lowend-agent-bench"
+version = "0.1.0"
+description = "A standardized empirical benchmark suite for low-end and resource-constrained LLM agents"
+readme = "README.md"
+authors = [{ name = "Local AI Labs" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+lowend-bench = "lowend_bench.cli:main"
